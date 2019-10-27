@@ -1,0 +1,30 @@
+# Find-permutaton-interview-bit
+Fastest java solution to this problem
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> findPerm(final String str, int B) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        if(str.length()==0||B==0)
+        return ans;
+        int count=1;
+        for(int i=0;i<=str.length();i++)
+        {
+            ans.add(0);
+        }
+        for(int i=0;i<=str.length();i++)
+        {
+            if(i==str.length()||str.charAt(i)=='I')
+            {
+                ans.set(i,count++);
+                for(int j=i-1;j>=0&&str.charAt(j)!='I';j--)
+                {
+                
+                        ans.set(j,count++);
+                }
+            }
+            
+        }
+        return ans;
+    }
+}
+
